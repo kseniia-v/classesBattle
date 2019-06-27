@@ -1,0 +1,15 @@
+{
+  "name": "classesBattle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "classesBattle/test.js",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}
