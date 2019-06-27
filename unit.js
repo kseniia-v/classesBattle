@@ -41,6 +41,8 @@ Unit.prototype._levelUp = function() {
   }
 }
 
+//I thought units - it is a quantity of actions at a time (hits), but it appeared that there is an extra quantity for heavy - shots
+//so I decided to use "unit" as a quantity of "objects" finally
 Unit.prototype.action = function(units, shots){
   var stdPower = this._power * units * (shots ? shots : 1);
   var result = this._level > 1 ? (stdPower + stdPower * this._level * 0.01) : stdPower;
@@ -48,18 +50,5 @@ Unit.prototype.action = function(units, shots){
   return result;
 }
 
-Unit.prototype.affect = function(whom, units, shots){
-  var effect = this.action(units, shots);
-  if(this instanceof Doctor){
-    this.addHealth.call(whom,effect);
-  }else{
-    this.takeDamage.call(whom,effect);
-  }
-  if(this.isAlive.call(whom)){
-    console.log(this.getName.call(whom) + ' is still ready to fight!');
-  }else{
-    console.log('Battle is over for ' + this.getName.call(whom));
-  }
-}
 
 module.exports = Unit;
